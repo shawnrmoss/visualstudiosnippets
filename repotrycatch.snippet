@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Repository Call Try Catch</Title>
+      <Author>Shawn Moss</Author>
+      <Description>A try catch that catches custom Jayman Repo exception with logger.</Description>
+      <Shortcut>repo</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+        try
+        {
+
+        }
+        catch(RepoException e)
+        {
+          _loggerService.Error(e.Message, e.Location);
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
