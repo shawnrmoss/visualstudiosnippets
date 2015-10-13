@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XRM Create</Title>
+      <Author>Shawn Moss</Author>
+      <Description>Method template for service level xrm repo creates.</Description>
+      <Shortcut>xcreate</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+        private void CreateObject(Object objectToCreate)
+        {
+            var newObject = new Object();
+            newObject.Id = objectToCreate.Id;
+            newObject.Name = objectToCreate.Name;
+
+            try
+            {
+                _objectRepository.CreateObject(newObject);
+            }
+            catch (RepoException e)
+            {
+                _loggerService.Error(e.Message, e.Location);
+            }
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
