@@ -17,7 +17,7 @@
         }
         catch(RepoException e)
         {
-          _loggerService.Error(e.Message, e.Location);
+          _loggerService.Error(e.Location, e.Message, e);
         }
         ]]>
       </Code>
