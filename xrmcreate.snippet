@@ -11,28 +11,25 @@
     <Snippet>
       <Code Language="CSharp">
         <![CDATA[
-        public Guid CreateOption(Option option)
-        {
-            Guid result = Guid.Empty;
-            try
-            {
-                result = _context.Create(new Jayman.Data.XRM.NS_option()
-                {
-                    NS_name = option.Name,
-                    NS_FASTOption = option.FASTOptionId,
-                    NS_FASTOptionName = option.Name,
-                    NS_FASTDescription = option.Description.Replace("\0", ""),
-                    NS_Maximum = option.Maximum,
-                    NS_FloorPlanLevel = option.OptionNote
-                });
-            }
-            catch (Exception e)
-            {
-                throw new RepoException("OptionRepository - CreateOption", e.Message, e.InnerException);
-            }
+          Guid result = Guid.Empty;
+          try
+          {
+              result = _context.Create(new Jayman.Data.XRM.NS_option()
+              {
+                  NS_name = option.Name,
+                  NS_FASTOption = option.FASTOptionId,
+                  NS_FASTOptionName = option.Name,
+                  NS_FASTDescription = option.Description.Replace("\0", ""),
+                  NS_Maximum = option.Maximum,
+                  NS_FloorPlanLevel = option.OptionNote
+              });
+          }
+          catch (Exception e)
+          {
+              throw new RepoException("OptionRepository - CreateOption", e.Message, e.InnerException);
+          }
 
-            return result;
-        }
+          return result;        
         ]]>
       </Code>
     </Snippet>

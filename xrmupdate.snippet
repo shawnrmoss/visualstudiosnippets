@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>XRM Create</Title>
+      <Author>Shawn Moss</Author>
+      <Description>Method template for service level xrm repo create.</Description>
+      <Shortcut>xcreate</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+          bool result = false;            
+
+          // Retrieve the attributes you want to update.
+          ColumnSet cols = new ColumnSet(
+              new String[] { "ns_elevationid", "ns_name", "ns_sqaurefootage" });
+
+          //Retrieve the entity
+          var retrievedElevation = (Jayman.Data.XRM.NS_elevation)_context.Retrieve("ns_elevation", elevationToUpdate.ElevationId, cols);
+
+          if (retrievedElevation != null)
+          {
+              //Set the values to update.
+              retrievedElevation.NS_name = elevationToUpdate.Name;
+              retrievedElevation.NS_SquareFootage = elevationToUpdate.SqFootage;
+              retrievedElevation.statuscode = elevationToUpdate.IsActive ? (int)Enums.StatusCode.Active : (int)Enums.StatusCode.Inactive;
+
+              try
+              {
+                  _context.Update(retrievedElevation);
+                  result = true;
+              }
+              catch (Exception e)
+              {
+                  throw new RepoException("ElevationRepository - UpdateElevation", e.Message, e.InnerException);
+              }
+          }
+
+          return result;
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

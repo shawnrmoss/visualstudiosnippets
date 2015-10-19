@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Sync Initiated</Title>
+      <Author>Shawn Moss</Author>
+      <Description>Log statement for the initiated sync process </Description>
+      <Shortcut>logi</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[
+                _loggerService.Info("FASTIntegrationService - SyncMethodName", "Initiated. SynchronizationId:" + target.SynchronizationId.ToString() + ", DivisionId:" + target.DivisionId.ToString() + ".");
+                ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
